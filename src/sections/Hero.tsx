@@ -6,14 +6,6 @@ export function Hero() {
   return (
     <section className="relative mx-auto grid max-w-[90rem] overflow-x-clip gap-14 px-5 pt-16 pb-20 sm:px-8 lg:min-h-[calc(100vh-73px)] lg:grid-cols-[1.2fr_.8fr] lg:items-center lg:px-12 lg:py-20">
       <div className="relative z-10">
-        <div className="mb-8 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-[#58635f]">
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#d24a2c] opacity-50" />
-            <span className="relative inline-flex size-2 rounded-full bg-[#d24a2c]" />
-          </span>
-          Open to opportunities
-        </div>
-
         <p className="mb-5 font-serif text-2xl italic text-[#d24a2c] sm:text-3xl">
           Hello, I&apos;m Trisha.
         </p>
