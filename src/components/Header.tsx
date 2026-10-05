@@ -117,7 +117,7 @@ export function Header({ activeSection }: HeaderProps) {
           {/* Hamburger — mobile only */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="grid size-10 place-items-center rounded-xl bg-[#17201d]/5 transition-colors hover:bg-[#17201d]/10 md:hidden"
+            className="grid size-12 place-items-center rounded-xl bg-[#17201d]/5 transition-colors hover:bg-[#17201d]/10 md:hidden"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-nav-dialog"
@@ -149,10 +149,12 @@ export function Header({ activeSection }: HeaderProps) {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
+        aria-hidden={!mobileMenuOpen}
+        inert={!mobileMenuOpen ? true : undefined}
         className={`relative z-50 mx-auto mt-2 max-w-[86rem] overflow-hidden rounded-2xl border border-[#17201d]/8 bg-[#f4f0e8]/95 shadow-[0_8px_32px_rgba(23,32,29,0.1)] backdrop-blur-2xl transition-all duration-300 md:hidden ${
           mobileMenuOpen
-            ? "max-h-[450px] opacity-100"
-            : "max-h-0 border-transparent opacity-0"
+            ? "max-h-[450px] opacity-100 visible pointer-events-auto"
+            : "max-h-0 border-transparent opacity-0 invisible pointer-events-none"
         }`}
       >
         <nav className="flex flex-col gap-1 p-3" aria-label="Mobile navigation">
