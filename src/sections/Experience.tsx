@@ -5,15 +5,15 @@ import spmPhoto2 from "../assets/spm-internship (2).jpg"
 
 const INTERNSHIP_PHOTOS = [
   {
-    src: spmPhoto1,
-    alt: "Intern team group photo at S.P.Madrid office",
-    caption: "With the team",
-  },
-  {
     src: spmPhoto2,
     alt: "Trisha Carias holding her internship certificate at S.P.Madrid",
     caption: "Certificate day",
   },
+  {
+    src: spmPhoto1,
+    alt: "Intern team group photo at S.P.Madrid office",
+    caption: "With the team",
+  }
 ]
 
 export function Experience() {
@@ -91,12 +91,13 @@ export function Experience() {
                   {INTERNSHIP_PHOTOS.map((photo, index) => (
                     <button
                       key={index}
+                      type="button"
+                      aria-label={`View photo ${index + 1}: ${photo.caption}`}
                       onClick={() => setActivePhoto(index)}
-                      className={`relative h-16 w-24 overflow-hidden rounded-lg border-2 transition-all duration-200 sm:h-20 sm:w-28 ${
-                        activePhoto === index
+                      className={`relative h-16 w-24 overflow-hidden rounded-lg border-2 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24a2c] focus-visible:ring-offset-2 sm:h-20 sm:w-28 ${activePhoto === index
                           ? "border-[#d24a2c] shadow-md"
                           : "border-transparent opacity-60 hover:opacity-90"
-                      }`}
+                        }`}
                     >
                       <img
                         src={photo.src}

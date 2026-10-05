@@ -30,7 +30,7 @@ export function Hero() {
         <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
           <a
             href="#experience"
-            className="group flex min-h-[48px] w-full items-center justify-center gap-4 rounded-full bg-[#17201d] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#d24a2c] active:scale-[0.98] sm:w-fit"
+            className="group flex min-h-[48px] w-full items-center justify-center gap-4 rounded-full bg-[#17201d] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#d24a2c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d24a2c] active:scale-[0.98] sm:w-fit"
           >
             View my experience
             <span
@@ -44,7 +44,7 @@ export function Hero() {
             href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="group flex min-h-[48px] w-full items-center justify-center gap-4 rounded-full border border-[#17201d]/30 px-6 py-3.5 text-sm font-semibold transition hover:border-[#17201d] hover:bg-white/40 active:scale-[0.98] sm:w-fit"
+            className="group flex min-h-[48px] w-full items-center justify-center gap-4 rounded-full border border-[#17201d]/30 px-6 py-3.5 text-sm font-semibold transition hover:border-[#17201d] hover:bg-white/40 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17201d] active:scale-[0.98] sm:w-fit"
           >
             LinkedIn
             <Arrow />

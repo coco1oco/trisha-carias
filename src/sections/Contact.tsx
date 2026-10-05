@@ -30,7 +30,7 @@ export function Contact() {
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="group flex min-h-[48px] w-full items-center justify-between gap-5 rounded-full bg-[#17201d] px-7 py-4 text-sm font-semibold text-white transition-transform duration-150 hover:-translate-y-1 active:scale-[0.98] sm:w-fit sm:justify-start"
+              className="group flex min-h-[48px] w-full items-center justify-between gap-5 rounded-full bg-[#17201d] px-7 py-4 text-sm font-semibold text-white transition-transform duration-150 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.98] sm:w-fit sm:justify-start"
             >
               Connect on LinkedIn
               <Arrow />
@@ -39,7 +39,7 @@ export function Contact() {
               href={resumePdf}
               target="_blank"
               rel="noreferrer"
-              className="group flex min-h-[48px] w-full items-center justify-between gap-5 rounded-full border border-white/40 px-7 py-4 text-sm font-semibold text-white transition-transform duration-150 hover:-translate-y-1 hover:border-white/70 active:scale-[0.98] sm:w-fit sm:justify-start"
+              className="group flex min-h-[48px] w-full items-center justify-between gap-5 rounded-full border border-white/40 px-7 py-4 text-sm font-semibold text-white transition-transform duration-150 hover:-translate-y-1 hover:border-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.98] sm:w-fit sm:justify-start"
             >
               Download Résumé
               <Arrow />

@@ -35,5 +35,8 @@ pnpm-debug.log*
 # Superpowers brainstorm
 .superpowers/
 
+# Docs
+./docs/superpowers
+
 # TypeScript cache
 *.tsbuildinfo
