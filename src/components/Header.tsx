@@ -124,11 +124,11 @@ export function Header({ activeSection }: HeaderProps) {
           <button
             type="button"
             onClick={() => setIsDrawerOpen(true)}
-            className="flex md:hidden size-11 items-center justify-center rounded-xl border border-[#17201d]/15 bg-white/70 hover:bg-white text-[#17201d] transition-colors cursor-pointer shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d24a2c]"
+            className="flex md:hidden size-11 items-center justify-center rounded-xl border border-[#17201d]/15 bg-white/70 hover:bg-white text-[#17201d] transition-all duration-200 active:scale-90 cursor-pointer shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d24a2c]"
             aria-label="Open mobile navigation menu"
             aria-expanded={isDrawerOpen}
           >
-            <Menu className="size-5.5" />
+            <Menu className="size-5.5 transition-transform duration-200" />
           </button>
         </div>
       </header>
