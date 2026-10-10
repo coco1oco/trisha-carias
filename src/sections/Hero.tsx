@@ -1,9 +1,8 @@
 import { useEffect, useRef } from "react"
-import { ArrowDown, FileText } from "lucide-react"
+import { ArrowDown } from "lucide-react"
 import { Arrow } from "../components/Arrow"
 import { SOCIAL_LINKS } from "../data/content"
 import trishaPortrait from "../assets/trisha-carias.jpg"
-import resumePdf from "../assets/Carias_PrincessTrisha_CV.pdf"
 import { gsap, isReducedMotion } from "../utils/animations"
 
 export function Hero() {
@@ -99,14 +98,6 @@ export function Hero() {
           >
             <span>Explore my journey</span>
             <ArrowDown className="size-4 transition-transform duration-200 group-hover:translate-y-0.5" />
-          </a>
-          <a
-            href={resumePdf}
-            download="Princess_Trisha_Carias_CV.pdf"
-            className="group flex min-h-[48px] w-full sm:w-fit items-center justify-center gap-2 rounded-xl sm:rounded-full border border-[#17201d]/20 bg-white/70 px-6 sm:px-7 py-3.5 text-xs sm:text-sm font-semibold text-[#17201d] transition-all duration-200 hover:border-[#17201d] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#17201d] active:scale-[0.98]"
-          >
-            <FileText className="size-4 text-[#d24a2c]" />
-            <span>Download CV</span>
           </a>
           <a
             href={SOCIAL_LINKS.linkedin}
