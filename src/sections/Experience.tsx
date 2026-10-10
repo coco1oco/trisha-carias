@@ -24,15 +24,15 @@ export function Experience() {
       // Header reveal
       gsap.fromTo(
         headingRef.current,
-        { opacity: 0, y: 36 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: "power3.out",
+          duration: 0.5,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: headingRef.current,
-            start: "top 82%",
+            start: "top 92%",
           },
         }
       )
@@ -42,16 +42,16 @@ export function Experience() {
         const cards = timelineRef.current.children
         gsap.fromTo(
           cards,
-          { opacity: 0, y: 32 },
+          { opacity: 0, y: 24 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            stagger: 0.2,
+            duration: 0.45,
+            stagger: 0.1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: timelineRef.current,
-              start: "top 78%",
+              start: "top 90%",
             },
           }
         )
@@ -69,7 +69,7 @@ export function Experience() {
     <section
       ref={sectionRef}
       id="experience"
-      className="scroll-mt-0 px-5 pt-36 pb-20 sm:px-8 sm:pt-40 sm:pb-28 lg:px-12 lg:pt-44 lg:pb-36"
+      className="scroll-mt-0 px-5 pt-20 pb-14 sm:px-8 sm:pt-32 sm:pb-24 lg:px-12 lg:pt-44 lg:pb-36"
     >
       <div className="mx-auto max-w-5xl">
         {/* Section Header */}

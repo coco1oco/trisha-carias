@@ -15,15 +15,15 @@ export function Contact() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         headingRef.current,
-        { opacity: 0, y: 36 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          ease: "power3.out",
+          duration: 0.5,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: headingRef.current,
-            start: "top 85%",
+            start: "top 92%",
           },
         }
       )
@@ -31,16 +31,16 @@ export function Contact() {
       if (buttonsRef.current) {
         gsap.fromTo(
           buttonsRef.current.children,
-          { opacity: 0, y: 20 },
+          { opacity: 0, y: 16 },
           {
             opacity: 1,
             y: 0,
-            duration: 0.8,
-            stagger: 0.15,
+            duration: 0.45,
+            stagger: 0.08,
             ease: "power2.out",
             scrollTrigger: {
               trigger: buttonsRef.current,
-              start: "top 88%",
+              start: "top 92%",
             },
           }
         )
@@ -54,7 +54,7 @@ export function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="scroll-mt-0 relative overflow-hidden bg-[#d24a2c] px-5 pt-36 pb-20 text-white sm:px-8 sm:pt-40 sm:pb-28 lg:px-12 lg:pt-44 lg:pb-36"
+      className="scroll-mt-0 relative overflow-hidden bg-[#d24a2c] px-5 pt-20 pb-16 text-white sm:px-8 sm:pt-32 sm:pb-24 lg:px-12 lg:pt-44 lg:pb-36"
     >
       {/* Decorative bookish ring motifs */}
       <div className="pointer-events-none absolute -right-24 -bottom-72 size-[42rem] rounded-full border border-white/20" />
