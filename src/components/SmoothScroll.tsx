@@ -16,6 +16,9 @@ export function SmoothScroll() {
       touchMultiplier: 1.5,
     })
 
+    // Expose lenis globally for modal locking
+    ;(window as unknown as { __lenis?: Lenis }).__lenis = lenis
+
     // Synchronize Lenis with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update)
 

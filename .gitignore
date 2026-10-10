@@ -40,3 +40,7 @@ docs/
 
 # TypeScript cache
 *.tsbuildinfo
+
+
+# Graphify out
+graphify-out/

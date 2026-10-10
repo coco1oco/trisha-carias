@@ -1,36 +1,98 @@
+import { useEffect, useRef } from "react"
 import { Arrow } from "../components/Arrow"
 import { SOCIAL_LINKS } from "../data/content"
 import resumePdf from "../assets/Carias_PrincessTrisha_CV.pdf"
+import { gsap, ScrollTrigger, isReducedMotion } from "../utils/animations"
 
 export function Contact() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const headingRef = useRef<HTMLHeadingElement>(null)
+  const buttonsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (isReducedMotion()) return
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        headingRef.current,
+        { opacity: 0, y: 36 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+          },
+        }
+      )
+
+      if (buttonsRef.current) {
+        gsap.fromTo(
+          buttonsRef.current.children,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: buttonsRef.current,
+              start: "top 88%",
+            },
+          }
+        )
+      }
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
+
   return (
     <section
+      ref={sectionRef}
       id="contact"
-      className="relative overflow-hidden bg-[#d24a2c] px-5 py-16 text-white sm:px-8 sm:py-24 lg:px-12 lg:py-32"
+      className="scroll-mt-0 relative overflow-hidden bg-[#d24a2c] px-5 pt-36 pb-20 text-white sm:px-8 sm:pt-40 sm:pb-28 lg:px-12 lg:pt-44 lg:pb-36"
     >
-      <div className="pointer-events-none absolute -right-24 -bottom-72 size-[42rem] rounded-full border border-white/25" />
-      <div className="pointer-events-none absolute right-28 -bottom-56 size-[32rem] rounded-full border border-white/15" />
+      {/* Decorative bookish ring motifs */}
+      <div className="pointer-events-none absolute -right-24 -bottom-72 size-[42rem] rounded-full border border-white/20" />
+      <div className="pointer-events-none absolute right-28 -bottom-56 size-[32rem] rounded-full border border-white/10" />
+
       <div className="relative mx-auto max-w-[90rem]">
-        <p className="eyebrow text-white/75">Let&apos;s connect</p>
-        <div className="mt-8 flex flex-col justify-between gap-10 sm:gap-12 lg:flex-row lg:items-end">
-          <div>
-            <h2 className="max-w-4xl font-serif text-4xl leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
-              Let&apos;s find the next
-              <br />
-              question worth solving.
+        <div className="flex items-center gap-3">
+          <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+            Epilogue · Let&apos;s Connect
+          </span>
+          <span className="h-px w-8 bg-white/30" aria-hidden="true" />
+        </div>
+
+        <div className="mt-8 flex flex-col justify-between gap-12 lg:flex-row lg:items-end">
+          <div className="max-w-3xl">
+            {/* Unified headline in pure Instrument Serif */}
+            <h2
+              ref={headingRef}
+              className="font-serif text-4xl font-normal leading-[1.05] tracking-[-0.03em] sm:text-6xl lg:text-7xl"
+            >
+              Let&apos;s write the next chapter together.
             </h2>
-            <p className="mt-5 sm:mt-7 max-w-xl text-base sm:text-lg leading-relaxed text-white/75">
-              I&apos;m looking for opportunities to learn, contribute, and
-              turn information into meaningful action.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
+              Open to project management, technical writing, product operations,
+              and high-agency opportunities where rapid learning, clear
+              communication, and structured execution make a real difference.
             </p>
           </div>
 
-          <div className="flex w-full shrink-0 flex-col gap-3.5 sm:w-auto sm:flex-row">
+          <div
+            ref={buttonsRef}
+            className="flex w-full shrink-0 flex-col gap-3.5 sm:w-auto sm:flex-row"
+          >
             <a
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="group flex min-h-[48px] w-full items-center justify-between gap-5 rounded-full bg-[#17201d] px-7 py-4 text-sm font-semibold text-white transition-transform duration-150 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.98] sm:w-fit sm:justify-start"
+              className="group flex min-h-[50px] w-full items-center justify-between gap-4 rounded-full bg-[#17201d] px-7 py-3.5 text-sm font-semibold text-[#f4f0e8] transition-all duration-200 hover:-translate-y-0.5 hover:bg-black focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.98] sm:w-fit sm:justify-start"
             >
               Connect on LinkedIn
               <Arrow />
@@ -39,7 +101,7 @@ export function Contact() {
               href={resumePdf}
               target="_blank"
               rel="noreferrer"
-              className="group flex min-h-[48px] w-full items-center justify-between gap-5 rounded-full border border-white/40 px-7 py-4 text-sm font-semibold text-white transition-transform duration-150 hover:-translate-y-1 hover:border-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.98] sm:w-fit sm:justify-start"
+              className="group flex min-h-[50px] w-full items-center justify-between gap-4 rounded-full border border-white/40 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white active:scale-[0.98] sm:w-fit sm:justify-start"
             >
               Download Résumé
               <Arrow />

@@ -1,11 +1,15 @@
 export function Footer() {
   return (
-    <footer className="bg-[#17201d] px-5 py-8 text-[#bac7be] sm:px-8 lg:px-12">
-      <div className="mx-auto flex max-w-[90rem] flex-col gap-4 text-xs uppercase tracking-[0.14em] md:flex-row md:items-center md:justify-between">
-        <p>Trisha Carias · 2026</p>
-        <p className="text-[#88998f]">Analytical by experience · Curious by nature</p>
+    <footer className="border-t border-[#17201d]/10 bg-[#17201d] px-5 py-10 text-[#bac7be] sm:px-8 lg:px-12">
+      <div className="mx-auto flex max-w-[90rem] flex-col gap-4 font-mono text-xs tracking-wider md:flex-row md:items-center md:justify-between">
+        <p className="text-white/90">
+          Princess Trisha Carias · {new Date().getFullYear()}
+        </p>
+        <p className="text-[#88998f]">
+          Grounded in fundamentals · Curious by nature
+        </p>
         <p>
-          Site by{" "}
+          Crafted with care by{" "}
           <a
             href="https://kurtmichaelmirafelix.dev"
             target="_blank"
@@ -19,4 +23,3 @@ export function Footer() {
     </footer>
   )
 }
-

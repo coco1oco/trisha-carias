@@ -191,19 +191,17 @@ export function Projects() {
                         className="group/bar relative flex h-full flex-col items-center justify-end rounded-t-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e66c4d]"
                       >
                         <div
-                          className={`w-full rounded-t-md transition-all duration-300 ${
-                            isActive
+                          className={`w-full rounded-t-md transition-all duration-300 ${isActive
                               ? "bg-[#e66c4d] shadow-[0_0_16px_rgba(230,108,77,0.7)]"
                               : "bg-[#d7dfd3]/70 hover:bg-[#d7dfd3]"
-                          }`}
+                            }`}
                           style={{ height: `${batch.height}%` }}
                         />
                         <span
-                          className={`mt-2 font-mono text-[10px] transition-colors ${
-                            isActive
+                          className={`mt-2 font-mono text-[10px] transition-colors ${isActive
                               ? "font-bold text-[#e66c4d]"
                               : "text-white/60 group-hover/bar:text-white"
-                          }`}
+                            }`}
                         >
                           {batch.shortLabel}
                         </span>
@@ -293,19 +291,17 @@ export function Projects() {
                       onClick={() => setActiveStageIndex(index)}
                       onMouseEnter={() => setActiveStageIndex(index)}
                       onFocus={() => setActiveStageIndex(index)}
-                      className={`flex w-full items-center justify-between rounded-xl border p-3.5 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24a2c] ${
-                        isActive
+                      className={`flex w-full items-center justify-between rounded-xl border p-3.5 text-left transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#d24a2c] ${isActive
                           ? "border-[#d24a2c] bg-[#f4f0e8] shadow-sm translate-x-1.5"
                           : "border-[#17201d]/15 bg-[#f4f0e8]/80 hover:bg-[#f4f0e8] hover:translate-x-1"
-                      }`}
+                        }`}
                     >
                       <div className="flex items-center gap-3">
                         <span
-                          className={`flex size-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors ${
-                            isActive
+                          className={`flex size-7 shrink-0 items-center justify-center rounded-full text-xs font-bold transition-colors ${isActive
                               ? "bg-[#d24a2c] text-white"
                               : "bg-[#17201d]/10 text-[#17201d]"
-                          }`}
+                            }`}
                         >
                           {stage.number}
                         </span>
@@ -319,11 +315,10 @@ export function Projects() {
                         </div>
                       </div>
                       <span
-                        className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
-                          isActive
+                        className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${isActive
                             ? "bg-[#d24a2c]/10 text-[#d24a2c]"
                             : "text-[#58635f]"
-                        }`}
+                          }`}
                       >
                         {stage.metric}
                       </span>

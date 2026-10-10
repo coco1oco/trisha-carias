@@ -36,13 +36,31 @@ export function StoryLightbox({
       if (e.key === "ArrowRight") handleNext()
     }
 
-    const originalOverflow = document.body.style.overflow
+    // Stop Lenis momentum scrolling while photo is open
+    const lenis = (window as unknown as { __lenis?: { stop: () => void; start: () => void } }).__lenis
+    lenis?.stop()
+
+    // Lock native document scroll
+    const origBodyOverflow = document.body.style.overflow
+    const origHtmlOverflow = document.documentElement.style.overflow
     document.body.style.overflow = "hidden"
+    document.documentElement.style.overflow = "hidden"
+
+    // Intercept wheel & touchmove so background cannot scroll on mobile or desktop
+    const preventScroll = (e: Event) => {
+      e.preventDefault()
+    }
+    window.addEventListener("wheel", preventScroll, { passive: false })
+    window.addEventListener("touchmove", preventScroll, { passive: false })
 
     window.addEventListener("keydown", handleKeyDown)
     return () => {
       window.removeEventListener("keydown", handleKeyDown)
-      document.body.style.overflow = originalOverflow
+      window.removeEventListener("wheel", preventScroll)
+      window.removeEventListener("touchmove", preventScroll)
+      document.body.style.overflow = origBodyOverflow
+      document.documentElement.style.overflow = origHtmlOverflow
+      lenis?.start()
     }
   }, [currentIndex, total, onClose])
 
@@ -52,8 +70,9 @@ export function StoryLightbox({
     <div
       role="dialog"
       aria-modal="true"
+      data-lenis-prevent="true"
       aria-label={`${activePhoto.title} - ${organization}`}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#17201d]/90 backdrop-blur-md p-3 sm:p-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#17201d]/90 backdrop-blur-md p-3 sm:p-6 select-none"
       onClick={(e) => {
         // Close if clicking outside the card container
         if (e.target === e.currentTarget) onClose()
