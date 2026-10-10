@@ -5,6 +5,12 @@ import { SOCIAL_LINKS } from "../data/content"
 import trishaPortrait from "../assets/trisha-carias.jpg"
 import { gsap, isReducedMotion } from "../utils/animations"
 
+const HERO_PILLS = [
+  "Data Validation",
+  "System Orchestration",
+  "Interface Design",
+]
+
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null)
   const tagRef = useRef<HTMLDivElement>(null)
@@ -26,28 +32,31 @@ export function Hero() {
       )
         .fromTo(
           headingRef.current,
-          { opacity: 0, y: 32 },
-          { opacity: 1, y: 0, duration: 1.1 },
+          { opacity: 0, y: 28 },
+          { opacity: 1, y: 0, duration: 1 },
           "-=0.5"
         )
         .fromTo(
           bioRef.current,
-          { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.9 },
-          "-=0.7"
-        )
-        .fromTo(
-          ctaRef.current,
           { opacity: 0, y: 20 },
           { opacity: 1, y: 0, duration: 0.8 },
           "-=0.6"
         )
         .fromTo(
+          ctaRef.current,
+          { opacity: 0, y: 16 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          "-=0.5"
+        )
+
+      if (imageCardRef.current && window.innerWidth >= 1024) {
+        tl.fromTo(
           imageCardRef.current,
           { opacity: 0, scale: 0.95, y: 28 },
-          { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power2.out" },
-          "-=0.9"
+          { opacity: 1, scale: 1, y: 0, duration: 1.1, ease: "power2.out" },
+          "-=0.8"
         )
+      }
     }, containerRef)
 
     return () => ctx.revert()
@@ -59,8 +68,38 @@ export function Hero() {
       className="relative mx-auto grid max-w-[90rem] overflow-x-clip gap-8 sm:gap-12 px-5 pt-24 pb-14 sm:px-8 sm:pt-32 sm:pb-24 lg:min-h-screen lg:grid-cols-[1.2fr_.8fr] lg:items-center lg:px-12 lg:pt-36 lg:pb-24"
     >
       <div className="relative z-10">
-        {/* Folio chapter tag */}
-        <div ref={tagRef} className="mb-4 sm:mb-6 flex items-center gap-3">
+        {/* Mobile Profile Avatar Header (< lg) */}
+        <div
+          ref={tagRef}
+          className="flex lg:hidden items-center gap-3.5 sm:gap-4 mb-6 pb-5 border-b border-[#17201d]/10"
+        >
+          <div className="relative shrink-0">
+            <img
+              src={trishaPortrait}
+              alt="Princess Trisha Carias"
+              className="size-16 sm:size-20 rounded-full object-cover object-top border-2 border-white shadow-md ring-2 ring-[#17201d]/12"
+            />
+            <span
+              className="absolute bottom-0 right-0 size-3.5 sm:size-4 rounded-full border-2 border-[#f4f0e8] bg-[#22c55e]"
+              title="Active & Ready"
+              aria-hidden="true"
+            />
+          </div>
+          <div className="min-w-0">
+            <span className="font-mono text-[0.65rem] sm:text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#d24a2c] block">
+              Portfolio · 2026
+            </span>
+            <h2 className="font-serif text-lg sm:text-xl font-medium tracking-tight text-[#17201d] truncate">
+              Princess Trisha Carias
+            </h2>
+            <p className="font-mono text-xs text-[#58635f] truncate">
+              B.S. Computer Science · Cavite, PH
+            </p>
+          </div>
+        </div>
+
+        {/* Desktop Chapter Tag (>= lg only) */}
+        <div className="hidden lg:flex mb-6 items-center gap-3">
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#d24a2c]">
             Princess Trisha Carias
           </span>
@@ -70,14 +109,15 @@ export function Hero() {
           </span>
         </div>
 
-        {/* Minimal, elegant headline */}
+        {/* Headline */}
         <h1
           ref={headingRef}
-          className="max-w-3xl font-serif text-3xl sm:text-5xl lg:text-[clamp(2.6rem,6vw,5.8rem)] font-normal leading-[1.08] tracking-[-0.03em] text-[#17201d]"
+          className="max-w-3xl font-serif text-[2.1rem] sm:text-4xl lg:text-[clamp(2.6rem,6vw,5.8rem)] font-normal leading-[1.1] tracking-[-0.03em] text-[#17201d]"
         >
           Bringing clarity to complex systems and ideas.
         </h1>
 
+        {/* Bio paragraph */}
         <p
           ref={bioRef}
           className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base lg:text-lg leading-relaxed text-[#58635f]"
@@ -87,10 +127,22 @@ export function Hero() {
           thoughtful execution.
         </p>
 
+        {/* Capability Pills */}
+        <div className="mt-5 flex flex-wrap gap-2">
+          {HERO_PILLS.map((pill) => (
+            <span
+              key={pill}
+              className="rounded-full border border-[#17201d]/12 bg-white/70 px-3 py-1 font-mono text-[0.68rem] sm:text-xs text-[#4c5652]"
+            >
+              {pill}
+            </span>
+          ))}
+        </div>
+
         {/* Touch-Friendly Action Buttons */}
         <div
           ref={ctaRef}
-          className="mt-8 sm:mt-10 flex w-full flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-3.5"
+          className="mt-7 sm:mt-9 flex w-full flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-3.5"
         >
           <a
             href="#experience"
@@ -111,9 +163,10 @@ export function Hero() {
         </div>
       </div>
 
+      {/* Desktop Archival portrait frame (>= lg only) */}
       <div
         ref={imageCardRef}
-        className="relative mx-auto w-full max-w-md lg:max-w-lg lg:justify-self-end mt-2 sm:mt-0"
+        className="hidden lg:block relative mx-auto w-full max-w-md lg:max-w-lg lg:justify-self-end mt-2 sm:mt-0"
       >
         {/* Soft background glow accents */}
         <div className="pointer-events-none absolute -inset-4 overflow-hidden rounded-[2.5rem] sm:-inset-6 sm:overflow-visible">
@@ -121,12 +174,12 @@ export function Hero() {
           <div className="absolute -bottom-4 -left-4 size-44 rounded-full bg-[#d7dfd3]/80 sm:-bottom-8 sm:-left-8 sm:size-52" />
         </div>
 
-        {/* Archival portrait frame with mobile-constrained height */}
+        {/* Archival portrait frame */}
         <div className="bookplate-card relative overflow-hidden rounded-[2rem] border border-[#17201d]/15 p-2.5 sm:p-3.5 shadow-[0_24px_60px_rgba(23,32,29,0.12)]">
           <img
             src={trishaPortrait}
             alt="Portrait of Princess Trisha Carias"
-            className="aspect-[4/5] max-h-[350px] sm:max-h-none w-full rounded-[1.4rem] object-cover object-top"
+            className="aspect-[4/5] w-full rounded-[1.4rem] object-cover object-top"
           />
 
           {/* Bookplate location caption badge */}
