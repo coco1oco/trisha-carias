@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { NAV_ITEMS } from "./data/content"
 import { Header } from "./components/Header"
+import { SmoothScroll } from "./components/SmoothScroll"
 import { Hero } from "./sections/Hero"
 import { About } from "./sections/About"
 import { Experience } from "./sections/Experience"
-import { Projects } from "./sections/Projects"
 import { Paths } from "./sections/Paths"
 import { Contact } from "./sections/Contact"
 import { Footer } from "./sections/Footer"
@@ -25,7 +25,7 @@ export default function App() {
 
         if (visible) setActiveSection(visible.target.id)
       },
-      { rootMargin: "-25% 0px -60% 0px", threshold: [0, 0.25, 0.5] },
+      { rootMargin: "-20% 0px -55% 0px", threshold: [0, 0.25, 0.5] },
     )
 
     sections.forEach((section) => observer.observe(section))
@@ -33,13 +33,13 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen overflow-hidden bg-[#f4f0e8] text-[#17201d]">
+    <div className="min-h-screen overflow-x-clip bg-[#f4f0e8] text-[#17201d]">
+      <SmoothScroll />
       <Header activeSection={activeSection} />
       <main id="top">
         <Hero />
         <About />
         <Experience />
-        <Projects />
         <Paths />
         <Contact />
       </main>

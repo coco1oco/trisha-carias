@@ -1,31 +1,71 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "DM Sans", sans-serif;
-  --font-serif: "Newsreader", serif;
-}
-
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
 html {
   scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: clip;
   background: #f4f0e8;
-  font-family: "DM Sans", sans-serif;
+  color: #17201d;
+  font-family: "Plus Jakarta Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbars in WebKit/Blink browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  display: none;
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 ::selection {
   background: #d24a2c;
   color: #ffffff;
+}
+
+.font-serif {
+  font-family: "Instrument Serif", Georgia, serif;
+}
+
+.font-mono {
+  font-family: "JetBrains Mono", monospace;
 }
 
 .nav-link {
@@ -37,12 +77,12 @@ body {
   right: 0;
   bottom: -0.35rem;
   left: 0;
-  height: 1px;
-  background: currentColor;
+  height: 1.5px;
+  background: #d24a2c;
   content: "";
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 200ms ease;
+  transition: transform 220ms ease;
 }
 
 .nav-link:hover::after {
@@ -50,11 +90,30 @@ body {
   transform-origin: left;
 }
 
-.eyebrow {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+.chapter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+
+.bookplate-card {
+  background: #fcfbf7;
+  border: 1px solid rgba(23, 32, 29, 0.12);
+  box-shadow: 0 4px 20px -2px rgba(23, 32, 29, 0.05),
+              0 1px 3px 0 rgba(23, 32, 29, 0.04);
+}
+
+.archival-photo {
+  background: #ffffff;
+  padding: 0.5rem;
+  border: 1px solid rgba(23, 32, 29, 0.12);
+  box-shadow: 0 10px 30px -4px rgba(23, 32, 29, 0.12),
+              0 2px 6px -1px rgba(23, 32, 29, 0.06);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -67,5 +126,6 @@ body {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
