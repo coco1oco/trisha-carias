@@ -69,6 +69,15 @@ The current Experience section in the portfolio places photos into a static, sti
   }
   ```
 
+### 2.5 Buttery Smooth Scrolling (Lenis + GSAP Integration)
+- Integrate **Lenis** (`lenis` package) for momentum/inertia scrolling:
+  - Custom exponential easing: `(t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))` with a 1.2s duration.
+  - Sync with GSAP ScrollTrigger:
+    - Update `ScrollTrigger.update` on Lenis scroll events.
+    - Synchronize Lenis's RAF cycle with `gsap.ticker.add((time) => { lenis.raf(time * 1000) })` and `gsap.ticker.lagSmoothing(0)`.
+  - Smooth anchor link navigation: Intercept clicks on `#about`, `#experience`, `#paths`, `#contact`, etc., and animate smoothly via `lenis.scrollTo(target, { offset: 0, duration: 1.5 })`.
+  - Accessibility: Automatically disabled if `isReducedMotion()` or `prefers-reduced-motion` is active.
+
 ---
 
 ## 3. Data Model Changes
@@ -121,13 +130,15 @@ export interface ExperienceItem {
 ## 4. Component Structure & Responsiveness
 
 ### Components:
-1. [`src/sections/Experience.tsx`](file:///c:/Users/GUEST-PC/star/src/sections/Experience.tsx):
+1. [`src/components/SmoothScroll.tsx`](file:///c:/Users/GUEST-PC/star/src/components/SmoothScroll.tsx):
+   - Initializes Lenis smooth scrolling, wires into GSAP ticker/ScrollTrigger, handles anchor navigation, and falls back cleanly for reduced motion.
+2. [`src/sections/Experience.tsx`](file:///c:/Users/GUEST-PC/star/src/sections/Experience.tsx):
    - Refactored to map experiences into full-width cards with expandable state tracking.
    - Clean entrance animations for cards with GSAP / ScrollTrigger.
-2. [`src/components/ExperienceBento.tsx`](file:///c:/Users/GUEST-PC/star/src/components/ExperienceBento.tsx):
+3. [`src/components/ExperienceBento.tsx`](file:///c:/Users/GUEST-PC/star/src/components/ExperienceBento.tsx):
    - Dedicated component for rendering the 4-tile Bento Box layout for an experience.
    - Handles photo clicks to trigger the lightbox.
-3. [`src/components/StoryLightbox.tsx`](file:///c:/Users/GUEST-PC/star/src/components/StoryLightbox.tsx):
+4. [`src/components/StoryLightbox.tsx`](file:///c:/Users/GUEST-PC/star/src/components/StoryLightbox.tsx):
    - Reusable modal lightbox with story-style left/right tap navigation, segmented progress indicators, accessible focus management, and keyboard controls.
 
 ### Responsive Breakpoints:
@@ -151,3 +162,5 @@ export interface ExperienceItem {
    - Verify `ESC`, close button, and backdrop click close the modal cleanly.
 4. **Mobile Responsiveness:** Test responsive stacking at mobile viewport dimensions (< 450px).
 5. **Scrollbar Verification:** Ensure no browser scrollbars or inner element scrollbars appear in Chrome/Edge/Firefox.
+6. **Smooth Scrolling Verification:** Test mouse wheel gliding momentum and anchor links navigation with Lenis.
+
