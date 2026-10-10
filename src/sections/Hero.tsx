@@ -5,11 +5,7 @@ import { SOCIAL_LINKS } from "../data/content"
 import trishaPortrait from "../assets/trisha-carias.jpg"
 import { gsap, isReducedMotion } from "../utils/animations"
 
-const HERO_PILLS = [
-  "Data Validation",
-  "System Orchestration",
-  "Interface Design",
-]
+
 
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null)
@@ -127,17 +123,7 @@ export function Hero() {
           thoughtful execution.
         </p>
 
-        {/* Capability Pills */}
-        <div className="mt-5 flex flex-wrap gap-2">
-          {HERO_PILLS.map((pill) => (
-            <span
-              key={pill}
-              className="rounded-full border border-[#17201d]/12 bg-white/70 px-3 py-1 font-mono text-[0.68rem] sm:text-xs text-[#4c5652]"
-            >
-              {pill}
-            </span>
-          ))}
-        </div>
+
 
         {/* Touch-Friendly Action Buttons */}
         <div
