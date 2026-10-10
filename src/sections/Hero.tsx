@@ -61,7 +61,7 @@ export function Hero() {
         {/* Folio chapter tag */}
         <div ref={tagRef} className="mb-6 flex items-center gap-3">
           <span className="font-mono text-xs font-semibold uppercase tracking-[0.2em] text-[#d24a2c]">
-            Trisha Carias
+            Princess Trisha Carias
           </span>
           <span className="h-px w-6 bg-[#17201d]/20" aria-hidden="true" />
           <span className="font-mono text-xs uppercase tracking-[0.16em] text-[#69736f]">
@@ -128,7 +128,7 @@ export function Hero() {
         <div className="bookplate-card relative overflow-hidden rounded-[2rem] border border-[#17201d]/15 p-3.5 shadow-[0_24px_60px_rgba(23,32,29,0.12)]">
           <img
             src={trishaPortrait}
-            alt="Portrait of Trisha Carias"
+            alt="Portrait of Princess Trisha Carias"
             className="aspect-[4/5] w-full rounded-[1.4rem] object-cover object-top"
           />
 

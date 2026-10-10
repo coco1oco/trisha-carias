@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react"
 import { ExperienceCaseStudy } from "../data/content"
 
 interface ExperienceBentoProps {
@@ -34,8 +35,8 @@ export function ExperienceBento({
               <span className="font-mono text-xs uppercase tracking-wider text-[#17201d] font-semibold">
                 📸 Field Artifacts ({photos.length})
               </span>
-              <span className="font-mono text-[0.68rem] text-[#69736f]">
-                Tap photo for story view &rarr;
+              <span className="font-mono text-[0.68rem] text-[#69736f] inline-flex items-center gap-1">
+                Tap photo for story view <ArrowRight className="size-3" />
               </span>
             </div>
 

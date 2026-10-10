@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { ArrowUpRight } from "lucide-react"
 import { NAV_ITEMS } from "../data/content"
 
 interface HeaderProps {
@@ -52,10 +53,10 @@ export function Header({ activeSection }: HeaderProps) {
         <a
           href="#top"
           className="group w-fit py-5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d24a2c]"
-          aria-label="Trisha Carias — home"
+          aria-label="Princess Trisha Carias — home"
         >
           <span className="block font-serif text-[1.9rem] leading-none sm:text-[2.1rem]">
-            Trisha Carias<span className="text-[#d24a2c]">.</span>
+            Princess Trisha Carias<span className="text-[#d24a2c]">.</span>
           </span>
           <span className="mt-2 block text-[0.6rem] font-medium uppercase tracking-[0.22em] text-[#69736f] transition-colors group-hover:text-[#d24a2c]">
             A curious mind. A clear perspective.
@@ -108,7 +109,7 @@ export function Header({ activeSection }: HeaderProps) {
             aria-hidden="true"
             className="grid size-10 place-items-center rounded-lg border border-[#17201d]/25 text-lg transition-colors group-hover:border-[#17201d] group-hover:bg-[#17201d] group-hover:text-[#f4f0e8]"
           >
-            ↗
+            <ArrowUpRight className="size-4.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </span>
         </a>
       </div>

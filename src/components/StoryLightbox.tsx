@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { ChevronLeft, ChevronRight, X } from "lucide-react"
 import { ArtifactPhoto } from "../data/content"
 
 interface StoryLightboxProps {
@@ -113,10 +114,10 @@ export function StoryLightbox({
             </div>
             <button
               onClick={onClose}
-              className="size-8 rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white flex items-center justify-center text-sm cursor-pointer"
+              className="size-8 rounded-full bg-white/15 hover:bg-white/25 transition-colors text-white flex items-center justify-center cursor-pointer"
               aria-label="Close photo viewer"
             >
-              ✕
+              <X className="size-4" />
             </button>
           </div>
         </div>
@@ -149,15 +150,15 @@ export function StoryLightbox({
             <>
               <div
                 aria-hidden="true"
-                className="hidden sm:flex absolute left-3 z-10 size-9 rounded-full bg-black/50 border border-white/20 items-center justify-center pointer-events-none text-white text-sm"
+                className="hidden sm:flex absolute left-3 z-10 size-9 rounded-full bg-black/50 border border-white/20 items-center justify-center pointer-events-none text-white"
               >
-                ←
+                <ChevronLeft className="size-5" />
               </div>
               <div
                 aria-hidden="true"
-                className="hidden sm:flex absolute right-3 z-10 size-9 rounded-full bg-black/50 border border-white/20 items-center justify-center pointer-events-none text-white text-sm"
+                className="hidden sm:flex absolute right-3 z-10 size-9 rounded-full bg-black/50 border border-white/20 items-center justify-center pointer-events-none text-white"
               >
-                →
+                <ChevronRight className="size-5" />
               </div>
             </>
           )}

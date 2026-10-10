@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { ChevronDown } from "lucide-react"
 import { EXPERIENCES } from "../data/content"
 import { ExperienceBento } from "../components/ExperienceBento"
 import { StoryLightbox } from "../components/StoryLightbox"
@@ -178,9 +179,11 @@ export function Experience() {
                           {photoCount} {photoCount === 1 ? "photo" : "photos"}
                         </span>
                       )}
-                      <span className="text-[0.75rem] font-bold">
-                        {isExpanded ? "▴" : "▾"}
-                      </span>
+                      <ChevronDown
+                        className={`size-3.5 transition-transform duration-200 ${
+                          isExpanded ? "rotate-180" : ""
+                        }`}
+                      />
                     </button>
                   )}
                 </div>
