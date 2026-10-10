@@ -162,7 +162,7 @@ export function Experience() {
                     <button
                       type="button"
                       onClick={() => setExpandedId(isExpanded ? null : exp.id)}
-                      className="inline-flex items-center gap-2 rounded-xl border border-[#d24a2c]/35 bg-[#fff5f2] px-3.5 py-2 font-mono text-xs font-semibold text-[#d24a2c] transition-all hover:bg-[#d24a2c] hover:text-white cursor-pointer shadow-xs"
+                      className="inline-flex w-full sm:w-auto items-center justify-between sm:justify-start gap-2 rounded-xl border border-[#d24a2c]/35 bg-[#fff5f2] px-3.5 py-2.5 font-mono text-xs font-semibold text-[#d24a2c] transition-all hover:bg-[#d24a2c] hover:text-white cursor-pointer shadow-xs"
                       aria-expanded={isExpanded}
                     >
                       <span>

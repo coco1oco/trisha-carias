@@ -31,7 +31,7 @@ export function ExperienceBento({
         {/* Tile 1: Photos Reel (Spans 7 cols on desktop if photos exist, otherwise omitted) */}
         {photos && photos.length > 0 && (
           <div className="sm:col-span-2 lg:col-span-7 rounded-2xl border border-[#17201d]/10 bg-[#e8e2d5]/60 p-4 sm:p-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#17201d]/10">
+            <div className="flex flex-wrap items-center justify-between gap-1 pb-3 border-b border-[#17201d]/10">
               <span className="font-mono text-xs uppercase tracking-wider text-[#17201d] font-semibold">
                 📸 Field Artifacts ({photos.length})
               </span>

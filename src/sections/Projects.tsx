@@ -177,7 +177,7 @@ export function Projects() {
 
               {/* Interactive simulated histogram */}
               <div className="relative mt-6">
-                <div className="grid h-36 grid-cols-7 items-end gap-2 sm:h-40">
+                <div className="grid h-36 grid-cols-7 items-end gap-1.5 sm:gap-2 sm:h-40">
                   {DATA_ANALYZER_BATCHES.map((batch, index) => {
                     const isActive = activeBarIndex === index
                     return (

@@ -73,15 +73,15 @@ export function StoryLightbox({
       aria-modal="true"
       data-lenis-prevent="true"
       aria-label={`${activePhoto.title} - ${organization}`}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#17201d]/90 backdrop-blur-md p-3 sm:p-6 select-none"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 sm:bg-[#17201d]/90 sm:backdrop-blur-md p-0 sm:p-6 select-none"
       onClick={(e) => {
-        // Close if clicking outside the card container
+        // Close if clicking outside the card container (desktop)
         if (e.target === e.currentTarget) onClose()
       }}
     >
-      <div className="relative flex flex-col w-full max-w-xl h-[90vh] max-h-[820px] bg-[#1d2623] text-white rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+      <div className="relative flex flex-col w-full h-[100dvh] sm:h-[90vh] sm:max-h-[820px] sm:max-w-xl bg-[#1d2623] text-white rounded-none sm:rounded-3xl overflow-hidden border-0 sm:border sm:border-white/10 shadow-2xl">
         {/* Top Story Header & Segmented Progress Bars */}
-        <div className="relative z-20 flex flex-col gap-3 p-4 bg-gradient-to-b from-black/85 via-black/60 to-transparent">
+        <div className="relative z-20 flex flex-col gap-2.5 sm:gap-3 p-3.5 sm:p-4 pt-4 sm:pt-4 bg-gradient-to-b from-black/90 via-black/60 to-transparent">
           {/* Progress Segments */}
           <div className="flex gap-1.5 w-full">
             {photos.map((photo, idx) => (
@@ -128,7 +128,7 @@ export function StoryLightbox({
             key={activePhoto.id}
             src={activePhoto.src}
             alt={activePhoto.title}
-            className="w-full h-full object-contain max-h-[62vh] select-none pointer-events-none"
+            className="w-full h-full object-contain max-h-[66vh] sm:max-h-[62vh] select-none pointer-events-none"
           />
 
           {/* Left 40% Tap Zone (Previous) */}
@@ -165,7 +165,7 @@ export function StoryLightbox({
         </div>
 
         {/* Bottom Metadata Drawer */}
-        <div className="relative z-20 p-4 sm:p-5 bg-gradient-to-t from-black/95 via-black/80 to-transparent">
+        <div className="relative z-20 p-3.5 sm:p-5 bg-gradient-to-t from-black/95 via-black/80 to-transparent pb-6 sm:pb-5">
           <div className="flex items-baseline justify-between gap-2">
             <h4 className="text-base sm:text-lg font-semibold text-white tracking-tight">
               {activePhoto.title}
