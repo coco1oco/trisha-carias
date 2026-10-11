@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://trishacarias.me/sitemap.xml
+Sitemap: https://princesstrishacarias.vercel.app/sitemap.xml
