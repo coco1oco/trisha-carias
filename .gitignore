@@ -44,3 +44,6 @@ docs/
 
 # Graphify out
 graphify-out/
+
+.vercel
+.env*

@@ -1,0 +1,5 @@
+# Robots.txt for Princess Trisha Carias Portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://trishacarias.me/sitemap.xml

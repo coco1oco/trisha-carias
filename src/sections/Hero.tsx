@@ -67,6 +67,11 @@ export function Hero() {
       ref={containerRef}
       className="relative mx-auto grid max-w-[90rem] overflow-x-clip gap-8 sm:gap-12 px-5 pt-24 pb-14 sm:px-8 sm:pt-32 sm:pb-24 lg:min-h-screen lg:grid-cols-[1.2fr_.8fr] lg:items-center lg:px-12 lg:pt-36 lg:pb-24"
     >
+      {/* Accessible primary heading for search engines and assistive technology */}
+      <h1 className="sr-only">
+        Princess Trisha Carias — Computer Science & Systems Portfolio
+      </h1>
+
       {/* =========================================
           MOBILE HERO LAYOUT (< lg viewports)
           Flow: Photo -> Name -> Bio -> 2-col CTAs
@@ -77,7 +82,10 @@ export function Hero() {
           <div className="bookplate-card relative overflow-hidden rounded-[1.75rem] border border-[#17201d]/15 p-2 sm:p-2.5 shadow-lg bg-[#f4f0e8]">
             <img
               src={trishaPortrait}
-              alt="Princess Trisha Carias"
+              alt="Princess Trisha Carias — Computer Science Student"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
               className="aspect-[4/5] w-full rounded-2xl object-cover object-top"
             />
           </div>
@@ -85,9 +93,9 @@ export function Hero() {
 
         {/* Name Underneath Photo */}
         <div className="mt-6 text-left">
-          <h1 className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#17201d]">
+          <p className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#17201d]">
             Princess Trisha Carias
-          </h1>
+          </p>
           <p className="mt-1 font-mono text-xs uppercase tracking-wider text-[#d24a2c] font-semibold">
             B.S. Computer Science · Cavite, PH
           </p>
@@ -136,12 +144,12 @@ export function Hero() {
         </div>
 
         {/* Minimal, elegant headline */}
-        <h1
+        <h2
           ref={headingRef}
           className="max-w-3xl font-serif text-[clamp(2.6rem,6vw,5.8rem)] font-normal leading-[1.08] tracking-[-0.03em] text-[#17201d]"
         >
           Bringing clarity to complex systems and ideas.
-        </h1>
+        </h2>
 
         {/* Bio paragraph */}
         <p
@@ -192,7 +200,10 @@ export function Hero() {
         <div className="bookplate-card relative overflow-hidden rounded-[2rem] border border-[#17201d]/15 p-2.5 sm:p-3.5 shadow-[0_24px_60px_rgba(23,32,29,0.12)]">
           <img
             src={trishaPortrait}
-            alt="Portrait of Princess Trisha Carias"
+            alt="Portrait of Princess Trisha Carias — Computer Science Student"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
             className="aspect-[4/5] w-full rounded-[1.4rem] object-cover object-top"
           />
 
