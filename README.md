@@ -72,4 +72,25 @@ I'm always excited to collaborate on technical projects, data challenges, and de
 
 ---
 
+## 🐳 Docker Deployment
+
+The application is fully containerized using a multi-stage Docker build with Nginx for static asset serving and SPA routing.
+
+### Running with Docker Compose (Recommended)
+```bash
+docker compose up --build -d
+```
+Access the application at `http://localhost:8080`.
+
+### Running with Docker CLI
+```bash
+# Build the image
+docker build -t trisha-portfolio .
+
+# Run the container
+docker run -d -p 8080:80 --name trisha-portfolio trisha-portfolio
+```
+
+---
+
 <sub>Built with React 19, TypeScript, Tailwind CSS v4, GSAP, and Lenis.</sub>

@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:build": "docker build -t trisha-portfolio .",
+    "docker:run": "docker run -p 8080:80 trisha-portfolio"
   },
   "dependencies": {
     "gsap": "^3.15.0",
